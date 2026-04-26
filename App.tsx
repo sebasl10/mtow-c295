@@ -175,6 +175,9 @@ export default function App() {
             <Text style={styles.footerText}>
               FAR-25 · DESPEGUE NORMAL · C-295 · FAC
             </Text>
+            <Text style={styles.footerCopyright}>
+              © {new Date().getFullYear()} CT LAGUNA WILSON - LAKE
+            </Text>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -301,5 +304,11 @@ const styles = StyleSheet.create({
     color: COLORS.textMuted,
     fontSize: 10,
     letterSpacing: 1.5,
+  },
+  footerCopyright: {
+    color: COLORS.textMuted,
+    fontSize: 10,
+    letterSpacing: 0.5,
+    marginTop: 4,
   },
 });
