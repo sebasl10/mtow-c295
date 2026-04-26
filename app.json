@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0D1B2A"
     },
     "ios": {
       "supportsTablet": true
@@ -24,7 +24,14 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single",
+      "name": "MTOW C-295",
+      "shortName": "MTOW C-295",
+      "description": "Calculadora de MTOW para C-295 — FAC",
+      "themeColor": "#0D1B2A",
+      "backgroundColor": "#0D1B2A"
     }
   }
 }
