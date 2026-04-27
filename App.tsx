@@ -13,18 +13,25 @@ import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { AerodromeSelector } from './src/components/AerodromeSelector';
 import { NumericInput } from './src/components/NumericInput';
 import { WetRunwayToggle } from './src/components/WetRunwayToggle';
+import { ModeSelector } from './src/components/ModeSelector';
 import { ResultCard } from './src/components/ResultCard';
 import { COLORS } from './src/components/theme';
 import { Airport } from './src/data/airports';
-import { calculateMtow, MtowResult } from './src/engine/mtow';
+import { calculateMtow, MtowResult, TakeoffMode } from './src/engine/mtow';
 
 export default function App() {
+  const [mode, setMode] = useState<TakeoffMode>('normal');
   const [aerodrome, setAerodrome] = useState<Airport | null>(null);
   const [oat, setOat] = useState('');
   const [pressureAlt, setPressureAlt] = useState('');
   const [runway, setRunway] = useState('');
   const [wetRunway, setWetRunway] = useState(false);
   const [result, setResult] = useState<MtowResult | null>(null);
+
+  const handleModeChange = useCallback((m: TakeoffMode) => {
+    setMode(m);
+    setResult(null);
+  }, []);
 
   const handleAerodromeSelect = useCallback((airport: Airport) => {
     setAerodrome(airport);
@@ -63,9 +70,10 @@ export default function App() {
       pressureAlt: altNum,
       availableRunway: runwayNum,
       wetRunway,
+      mode,
     });
     setResult(r);
-  }, [isValid, oatNum, altNum, runwayNum, wetRunway]);
+  }, [isValid, oatNum, altNum, runwayNum, wetRunway, mode]);
 
   return (
     <SafeAreaProvider>
@@ -89,7 +97,9 @@ export default function App() {
             <View style={styles.headerTextBlock}>
               <Text style={styles.headerTitle}>Cálculo MTOW</Text>
               <Text style={styles.headerSubtitle}>
-                Despegue Normal · Flaps 10° · V2=1.23Vsr
+                {mode === 'normal'
+                  ? 'Despegue Normal · Flaps 10° · V2=1.23Vsr'
+                  : 'Pista Corta · Flaps T/O 10° · V2=1.05Vsr'}
               </Text>
             </View>
           </View>
@@ -101,6 +111,12 @@ export default function App() {
             <Text style={styles.sectionTitle}>PARÁMETROS DE ENTRADA</Text>
 
             <View style={styles.inputGroup}>
+              {/* Mode selector */}
+              <View style={styles.fieldBlock}>
+                <Text style={styles.fieldLabel}>MODO DE DESPEGUE</Text>
+                <ModeSelector value={mode} onChange={handleModeChange} />
+              </View>
+
               {/* Aerodrome */}
               <View style={styles.fieldBlock}>
                 <Text style={styles.fieldLabel}>AERÓDROMO</Text>
@@ -173,7 +189,9 @@ export default function App() {
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>
-              FAR-25 · DESPEGUE NORMAL · C-295 · FAC
+              {mode === 'normal'
+                ? 'FAR-25 · DESPEGUE NORMAL · C-295 · FAC'
+                : 'FAR-25 · PISTA CORTA · C-295 · FAC'}
             </Text>
             <Text style={styles.footerCopyright}>
               © {new Date().getFullYear()} CT LAGUNA WILSON - LAKE

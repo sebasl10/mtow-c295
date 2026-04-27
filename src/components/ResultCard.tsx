@@ -64,7 +64,7 @@ export function ResultCard({ result }: Props) {
           label="Pista Requerida"
           value={`${fmt(result.pistaRequerida)} ft`}
           sub={result.pistaEfectiva !== result.pistaRequerida
-            ? `(+ 800 ft húmeda → ${fmt(result.pistaEfectiva)} ft)`
+            ? `(+ ${fmt(result.pistaEfectiva - result.pistaRequerida)} ft húmeda → ${fmt(result.pistaEfectiva)} ft)`
             : undefined}
         />
         <DetailRow

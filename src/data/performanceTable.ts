@@ -70,3 +70,67 @@ export const PERF_TABLE: PerfRow[] = [
 ];
 
 export const PERF_ALTITUDES = [0, 1000, 2000, 4000, 6000, 8000, 10000];
+
+// Source: TABLA_C2_CORTA — C295 FAR-25 short-field takeoff, flaps T/O 10°, V2=1.05Vsr, bleeds OFF
+export const PERF_TABLE_CORTA: PerfRow[] = [
+  // Altitude 0 ft
+  { altitudeFt: 0,     oat: 0,  mtow10kg: 2320, gradient: 2.0, runwayFt: 3900 },
+  { altitudeFt: 0,     oat: 10, mtow10kg: 2320, gradient: 1.8, runwayFt: 4100 },
+  { altitudeFt: 0,     oat: 20, mtow10kg: 2302, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 0,     oat: 25, mtow10kg: 2288, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 0,     oat: 30, mtow10kg: 2270, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 0,     oat: 35, mtow10kg: 2252, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 0,     oat: 40, mtow10kg: 2177, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 0,     oat: 45, mtow10kg: 2099, gradient: 1.7, runwayFt: 4200 },
+  // Altitude 1000 ft
+  { altitudeFt: 1000,  oat: 0,  mtow10kg: 2320, gradient: 1.8, runwayFt: 4100 },
+  { altitudeFt: 1000,  oat: 10, mtow10kg: 2301, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 1000,  oat: 20, mtow10kg: 2271, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 1000,  oat: 25, mtow10kg: 2250, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 1000,  oat: 30, mtow10kg: 2220, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 1000,  oat: 35, mtow10kg: 2173, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 1000,  oat: 40, mtow10kg: 2095, gradient: 1.7, runwayFt: 4200 },
+  { altitudeFt: 1000,  oat: 45, mtow10kg: 2013, gradient: 1.7, runwayFt: 4100 },
+  // Altitude 2000 ft
+  { altitudeFt: 2000,  oat: 0,  mtow10kg: 2300, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 2000,  oat: 10, mtow10kg: 2269, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 2000,  oat: 20, mtow10kg: 2238, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 2000,  oat: 25, mtow10kg: 2198, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 2000,  oat: 30, mtow10kg: 2153, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 2000,  oat: 35, mtow10kg: 2084, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 2000,  oat: 40, mtow10kg: 2010, gradient: 1.7, runwayFt: 4200 },
+  { altitudeFt: 2000,  oat: 45, mtow10kg: 1933, gradient: 1.7, runwayFt: 4100 },
+  // Altitude 4000 ft
+  { altitudeFt: 4000,  oat: 0,  mtow10kg: 2235, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 4000,  oat: 10, mtow10kg: 2196, gradient: 1.7, runwayFt: 4500 },
+  { altitudeFt: 4000,  oat: 20, mtow10kg: 2123, gradient: 1.7, runwayFt: 4500 },
+  { altitudeFt: 4000,  oat: 25, mtow10kg: 2056, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 4000,  oat: 30, mtow10kg: 1987, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 4000,  oat: 35, mtow10kg: 1918, gradient: 1.7, runwayFt: 4200 },
+  { altitudeFt: 4000,  oat: 40, mtow10kg: 1848, gradient: 1.7, runwayFt: 4200 },
+  { altitudeFt: 4000,  oat: 45, mtow10kg: 1774, gradient: 1.7, runwayFt: 4000 },
+  // Altitude 6000 ft
+  { altitudeFt: 6000,  oat: 0,  mtow10kg: 2156, gradient: 1.7, runwayFt: 4600 },
+  { altitudeFt: 6000,  oat: 10, mtow10kg: 2069, gradient: 1.7, runwayFt: 4600 },
+  { altitudeFt: 6000,  oat: 20, mtow10kg: 1952, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 6000,  oat: 25, mtow10kg: 1889, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 6000,  oat: 30, mtow10kg: 1826, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 6000,  oat: 35, mtow10kg: 1760, gradient: 1.7, runwayFt: 4200 },
+  { altitudeFt: 6000,  oat: 40, mtow10kg: 1692, gradient: 1.7, runwayFt: 4100 },
+  { altitudeFt: 6000,  oat: 45, mtow10kg: 1623, gradient: 1.7, runwayFt: 4000 },
+  // Altitude 8000 ft
+  { altitudeFt: 8000,  oat: 0,  mtow10kg: 2004, gradient: 1.7, runwayFt: 4600 },
+  { altitudeFt: 8000,  oat: 10, mtow10kg: 1903, gradient: 1.7, runwayFt: 4500 },
+  { altitudeFt: 8000,  oat: 20, mtow10kg: 1794, gradient: 1.7, runwayFt: 4400 },
+  { altitudeFt: 8000,  oat: 25, mtow10kg: 1736, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 8000,  oat: 30, mtow10kg: 1675, gradient: 1.7, runwayFt: 4200 },
+  { altitudeFt: 8000,  oat: 35, mtow10kg: 1613, gradient: 1.7, runwayFt: 4100 },
+  { altitudeFt: 8000,  oat: 40, mtow10kg: 1551, gradient: 1.7, runwayFt: 4000 },
+  // Altitude 10000 ft
+  { altitudeFt: 10000, oat: 0,  mtow10kg: 1847, gradient: 1.7, runwayFt: 4500 },
+  { altitudeFt: 10000, oat: 10, mtow10kg: 1751, gradient: 1.7, runwayFt: 4500 },
+  { altitudeFt: 10000, oat: 20, mtow10kg: 1647, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 10000, oat: 25, mtow10kg: 1588, gradient: 1.7, runwayFt: 4300 },
+  { altitudeFt: 10000, oat: 30, mtow10kg: 1533, gradient: 1.7, runwayFt: 4200 },
+  { altitudeFt: 10000, oat: 35, mtow10kg: 1475, gradient: 1.7, runwayFt: 4100 },
+];
