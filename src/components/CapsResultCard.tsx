@@ -56,30 +56,9 @@ export function CapsResultCard({ result }: Props) {
             <Text style={styles.statusText}>{isOk ? 'OK' : isNoPermitido ? 'PROHIBIDO' : '—'}</Text>
           </View>
         </View>
-
-        {result.factor ? (
-          <Text style={[styles.factorLine, { color: factorColor(result.factor) }]}>
-            {FACTOR_LABELS[result.factor] ?? result.factor}
-          </Text>
-        ) : null}
       </View>
 
-      {/* V-speeds */}
-      {isOk && result.v1 !== null && (
-        <View style={styles.vCard}>
-          <Text style={styles.vCardTitle}>VELOCIDADES DE DESPEGUE</Text>
-          <View style={styles.vRow}>
-            <VSpeed label="V1" value={result.v1} />
-            <View style={styles.vDivider} />
-            <VSpeed label="VR" value={result.vr} />
-            <View style={styles.vDivider} />
-            <VSpeed label="V2" value={result.v2} />
-          </View>
-          <Text style={styles.vUnit}>kt IAS</Text>
-        </View>
-      )}
-
-      {/* Factor detail */}
+      {/* Factor limitante */}
       {isOk && result.factor && (
         <View style={styles.detailCard}>
           <View style={styles.detailRow}>
@@ -93,6 +72,21 @@ export function CapsResultCard({ result }: Props) {
           <Text style={styles.detailDesc}>
             {FACTOR_LABELS[result.factor] ?? result.factor}
           </Text>
+        </View>
+      )}
+
+      {/* V-speeds */}
+      {isOk && result.v1 !== null && (
+        <View style={styles.vCard}>
+          <Text style={styles.vCardTitle}>VELOCIDADES DE DESPEGUE</Text>
+          <View style={styles.vRow}>
+            <VSpeed label="V1" value={result.v1} />
+            <View style={styles.vDivider} />
+            <VSpeed label="VR" value={result.vr} />
+            <View style={styles.vDivider} />
+            <VSpeed label="V2" value={result.v2} />
+          </View>
+          <Text style={styles.vUnit}>kt IAS</Text>
         </View>
       )}
     </View>
@@ -147,10 +141,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '800',
     letterSpacing: 0.8,
-  },
-  factorLine: {
-    fontSize: 13,
-    marginTop: 2,
   },
   vCard: {
     backgroundColor: COLORS.card,

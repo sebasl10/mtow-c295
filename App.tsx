@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { AerodromeSelector } from './src/components/AerodromeSelector';
-import { CapsScenarioSelector } from './src/components/CapsScenarioSelector';
+import { CapsCascadePicker } from './src/components/CapsCascadePicker';
 import { NumericInput } from './src/components/NumericInput';
 import { WetRunwayToggle } from './src/components/WetRunwayToggle';
 import { ModeSelector } from './src/components/ModeSelector';
@@ -171,7 +171,7 @@ export default function App() {
                   <>
                     <View style={styles.fieldBlock}>
                       <Text style={styles.fieldLabel}>AERÓDROMO / CARTA TÉCNICA</Text>
-                      <CapsScenarioSelector
+                      <CapsCascadePicker
                         selected={capsScenario}
                         onSelect={handleCapsScenarioSelect}
                       />

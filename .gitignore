@@ -39,3 +39,8 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# IA
+graphify-out/
+.claude/
+CLAUDE.md
