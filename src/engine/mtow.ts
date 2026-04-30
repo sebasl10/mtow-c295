@@ -1,7 +1,7 @@
 import { PERF_TABLE, PERF_TABLE_CORTA, PERF_ALTITUDES, PerfRow } from '../data/performanceTable';
 import { CG_OAT_VALUES, CG_ALT_VALUES, cgTableLookup, cgTableLookupCorta } from '../data/cgTable';
 
-export type TakeoffMode = 'normal' | 'corta';
+export type TakeoffMode = 'caps' | 'normal' | 'corta';
 export type LimitingFactor = 'NINGUNO' | 'PISTA' | 'GRADIENTE' | 'PISTA Y GRADIENTE';
 export type OperationalStatus = 'VERDE' | 'ÁMBAR' | 'ROJO';
 
@@ -10,7 +10,7 @@ export interface MtowInput {
   pressureAlt: number;
   availableRunway: number;
   wetRunway: boolean;
-  mode: TakeoffMode;
+  mode: 'normal' | 'corta';
 }
 
 export interface MtowResult {

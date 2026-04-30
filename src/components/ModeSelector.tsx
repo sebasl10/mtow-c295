@@ -8,33 +8,30 @@ interface ModeSelectorProps {
   onChange: (mode: TakeoffMode) => void;
 }
 
+const MODES: { key: TakeoffMode; label: string; sub: string }[] = [
+  { key: 'caps', label: 'CAPS 2017', sub: 'Tabla técnica' },
+  { key: 'normal', label: 'NORMAL', sub: 'V2=1.23Vsr' },
+  { key: 'corta', label: 'PISTA CORTA', sub: 'V2=1.05Vsr' },
+];
+
 export function ModeSelector({ value, onChange }: ModeSelectorProps) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={[styles.btn, value === 'normal' && styles.btnActive]}
-        onPress={() => onChange('normal')}
-        activeOpacity={0.8}
-      >
-        <Text style={[styles.btnText, value === 'normal' && styles.btnTextActive]}>
-          NORMAL
-        </Text>
-        <Text style={[styles.btnSub, value === 'normal' && styles.btnSubActive]}>
-          V2=1.23Vsr
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.btn, value === 'corta' && styles.btnActive]}
-        onPress={() => onChange('corta')}
-        activeOpacity={0.8}
-      >
-        <Text style={[styles.btnText, value === 'corta' && styles.btnTextActive]}>
-          PISTA CORTA
-        </Text>
-        <Text style={[styles.btnSub, value === 'corta' && styles.btnSubActive]}>
-          V2=1.05Vsr
-        </Text>
-      </TouchableOpacity>
+      {MODES.map(m => (
+        <TouchableOpacity
+          key={m.key}
+          style={[styles.btn, value === m.key && styles.btnActive]}
+          onPress={() => onChange(m.key)}
+          activeOpacity={0.8}
+        >
+          <Text style={[styles.btnText, value === m.key && styles.btnTextActive]}>
+            {m.label}
+          </Text>
+          <Text style={[styles.btnSub, value === m.key && styles.btnSubActive]}>
+            {m.sub}
+          </Text>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 }
@@ -58,7 +55,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: COLORS.textSecondary,
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '700',
     letterSpacing: 0.8,
   },
@@ -67,7 +64,7 @@ const styles = StyleSheet.create({
   },
   btnSub: {
     color: COLORS.textMuted,
-    fontSize: 10,
+    fontSize: 9,
     marginTop: 2,
     letterSpacing: 0.3,
   },
