@@ -54,6 +54,15 @@ export function ResultCard({ result }: Props) {
         <Text style={styles.factorText}>{FACTOR_LABEL[result.factorLimitante]}</Text>
       </View>
 
+      {/* Pista crítica warning */}
+      {result.pistaCritica && (
+        <View style={[styles.warningCard, { borderColor: COLORS.rojo, backgroundColor: COLORS.rojoSubtle }]}>
+          <Text style={[styles.warningText, { color: COLORS.rojo }]}>
+            La pista requerida es +600 ft superior a la pista disponible, por lo tanto debe ir a las tablas de rendimiento de la aeronave.
+          </Text>
+        </View>
+      )}
+
       {/* Detail rows */}
       <View style={styles.detailGrid}>
         <DetailRow label="MTOW por Gradiente" value={`${fmt(result.mtowGradiente)} kg`} />
@@ -164,6 +173,16 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: COLORS.border,
     marginHorizontal: 16,
+  },
+  warningCard: {
+    borderWidth: 1.5,
+    borderRadius: 12,
+    padding: 14,
+  },
+  warningText: {
+    fontSize: 13,
+    fontWeight: '600',
+    lineHeight: 18,
   },
 });
 

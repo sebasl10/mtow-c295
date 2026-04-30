@@ -25,6 +25,7 @@ export interface MtowResult {
   gradienteOk: boolean;
   factorLimitante: LimitingFactor;
   status: OperationalStatus;
+  pistaCritica: boolean;
 }
 
 // Mode-specific constants
@@ -143,10 +144,15 @@ export function calculateMtow(input: MtowInput): MtowResult {
 
   // Runway-limited MTOW (CFL)
   let mtowCfl: number;
+  const deficit = pistaEfectiva - availableRunway;
+  const uncappedSteps = deficit > 0 ? Math.ceil(deficit / 80) : 0;
+  const steps = Math.min(10, uncappedSteps);
+  // After max 10-step (2000 kg) reduction, each step covers 80 ft → 800 ft total.
+  // Critical if remaining deficit after max reduction still exceeds 600 ft.
+  const pistaCritica = uncappedSteps > 10 && (deficit - 800) > 600;
   if (pistaEfectiva <= availableRunway) {
     mtowCfl = mtowTabla;
   } else {
-    const steps = Math.min(10, Math.ceil((pistaEfectiva - availableRunway) / 80));
     mtowCfl = mtowTabla - steps * 200;
   }
 
@@ -164,7 +170,8 @@ export function calculateMtow(input: MtowInput): MtowResult {
 
   // Operational status
   let status: OperationalStatus;
-  if (factorLimitante === 'NINGUNO')              status = 'VERDE';
+  if (pistaCritica)                               status = 'ROJO';
+  else if (factorLimitante === 'NINGUNO')         status = 'VERDE';
   else if (factorLimitante === 'PISTA Y GRADIENTE') status = 'ROJO';
   else                                            status = 'ÁMBAR';
 
@@ -174,6 +181,6 @@ export function calculateMtow(input: MtowInput): MtowResult {
     mtowFinal, mtowTabla, mtowCfl, mtowGradiente,
     pistaRequerida, pistaEfectiva,
     gradienteMin, gradienteDisponible, gradienteOk,
-    factorLimitante, status,
+    factorLimitante, status, pistaCritica,
   };
 }
