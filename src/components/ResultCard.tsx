@@ -62,9 +62,9 @@ export function ResultCard({ result }: Props) {
         <View style={styles.divider} />
         <DetailRow
           label="Pista Requerida"
-          value={`${fmt(result.pistaRequerida)} ft`}
+          value={`${fmt(result.pistaEfectiva !== result.pistaRequerida ? result.pistaEfectiva : result.pistaRequerida)} ft`}
           sub={result.pistaEfectiva !== result.pistaRequerida
-            ? `(+ ${fmt(result.pistaEfectiva - result.pistaRequerida)} ft húmeda → ${fmt(result.pistaEfectiva)} ft)`
+            ? `Incluye +${fmt(result.pistaEfectiva - result.pistaRequerida)} ft por pista húmeda`
             : undefined}
         />
         <DetailRow
