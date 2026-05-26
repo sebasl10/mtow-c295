@@ -147,9 +147,7 @@ export function calculateMtow(input: MtowInput): MtowResult {
   const deficit = pistaEfectiva - availableRunway;
   const uncappedSteps = deficit > 0 ? Math.ceil(deficit / 80) : 0;
   const steps = Math.min(10, uncappedSteps);
-  // After max 10-step (2000 kg) reduction, each step covers 80 ft → 800 ft total.
-  // Critical if remaining deficit after max reduction still exceeds 600 ft.
-  const pistaCritica = uncappedSteps > 10 && (deficit - 800) > 600;
+  const pistaCritica = deficit > 600;
   if (pistaEfectiva <= availableRunway) {
     mtowCfl = mtowTabla;
   } else {
