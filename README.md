@@ -118,15 +118,3 @@ npx expo export --platform web
 
 # The dist/ directory is configured for Vercel (dist/.vercel/project.json)
 ```
-
----
-
-## Performance data
-
-The data in `performanceTable`, `cgTable`, and `capsData` come from the official C-295 technical documentation of the **Colombian Air Force**. It is not public and must not be distributed outside official FAC channels.
-
----
-
-## Author
-
-**CT Laguna Wilson - Lake** · Colombian Air Force
