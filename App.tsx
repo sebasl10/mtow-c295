@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import { Analytics } from '@vercel/analytics/react';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { AerodromeSelector } from './src/components/AerodromeSelector';
 import { CapsCascadePicker } from './src/components/CapsCascadePicker';
@@ -130,6 +131,7 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
+      {Platform.OS === 'web' && <Analytics />}
       <SafeAreaView style={styles.safeArea}>
         <StatusBar barStyle="light-content" backgroundColor={COLORS.background} />
         <KeyboardAvoidingView
